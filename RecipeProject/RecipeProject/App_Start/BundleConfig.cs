@@ -12,7 +12,12 @@ namespace RecipeProject
         {
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
+                "~/Content/base.css",
                 "~/Content/recipe.css"
+            ));
+
+            bundles.Add(new ScriptBundle("~/Scripts/js").Include(
+                "~/Scripts/recipe.js"
             ));
         }
     }

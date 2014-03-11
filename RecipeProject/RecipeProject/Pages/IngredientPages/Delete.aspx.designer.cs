@@ -7,63 +7,54 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace RecipeProject.Pages.Shared {
+namespace RecipeProject.Pages.IngredientPages {
     
     
-    public partial class Recipe {
+    public partial class Delete {
         
         /// <summary>
-        /// Head1 control.
+        /// ConfirmationPlaceHolder control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlHead Head1;
+        protected global::System.Web.UI.WebControls.PlaceHolder ConfirmationPlaceHolder;
         
         /// <summary>
-        /// head control.
+        /// IngredientValue control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
+        protected global::System.Web.UI.WebControls.Literal IngredientValue;
         
         /// <summary>
-        /// zeeForm control.
+        /// Recipename control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm zeeForm;
+        protected global::System.Web.UI.WebControls.Literal Recipename;
         
         /// <summary>
-        /// NavigationPlaceHolder control.
+        /// DeleteLinkButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder NavigationPlaceHolder;
+        protected global::System.Web.UI.WebControls.LinkButton DeleteLinkButton;
         
         /// <summary>
-        /// ScriptManager1 control.
+        /// CancelHyperLink control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager1;
-        
-        /// <summary>
-        /// MainPlaceHolder control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder MainPlaceHolder;
+        protected global::System.Web.UI.WebControls.HyperLink CancelHyperLink;
     }
 }

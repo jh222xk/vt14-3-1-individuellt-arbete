@@ -1,25 +1,53 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Recipe.master.cs" Inherits="RecipeProject.Pages.Shared.Recipe" ViewStateMode="Disabled" %>
 
 <!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" ><![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
 
-<html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
-    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="ROBOTS" content="ALL" />
+    <meta content="recipes, emma" name="keywords">
+    <meta content="Go through Emma's all recipe online!" name="description">
+    <title>Emmas receptbok</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <%: Styles.Render("~/Content/css") %>
 </head>
 <body>
-    <form id="Form1" runat="server">
-        <asp:ScriptManager ID="ScriptManager1" runat="server">
-            <Scripts>
-                <%--Framework Scripts--%>
-                <asp:ScriptReference Name="jquery" />
-            </Scripts>
-        </asp:ScriptManager>
-        <div>
-            <asp:ContentPlaceHolder ID="MainPlaceHolder" runat="server">
-            </asp:ContentPlaceHolder>
+    <form id="zeeForm" runat="server">
+        <div class="page">
+            <header>
+                <div class="top">
+                    <h1 class="site-brand"><a href='<%$ RouteUrl:routename=Default %>' runat="server">Emmas receptbok</a></h1>
+                    <nav class="navigation">
+                        <ul>
+                            <asp:ContentPlaceHolder ID="NavigationPlaceHolder" runat="server">
+                            </asp:ContentPlaceHolder>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
+
+            <asp:ScriptManager ID="ScriptManager1" runat="server">
+                <Scripts>
+                    <%--Framework Scripts--%>
+                    <asp:ScriptReference Name="jquery" />
+                </Scripts>
+            </asp:ScriptManager>
+            <%: Scripts.Render("~/Scripts/js") %>
+            <main class="main">
+            <div class="row">
+                <div class="large-12 columns">
+                <asp:ContentPlaceHolder ID="MainPlaceHolder" runat="server">
+                </asp:ContentPlaceHolder>
+             </div>
+                </div>
+               
+        </main>
         </div>
     </form>
 </body>

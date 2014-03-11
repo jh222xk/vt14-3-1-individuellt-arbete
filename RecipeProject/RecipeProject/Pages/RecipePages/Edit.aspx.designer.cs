@@ -10,7 +10,7 @@
 namespace RecipeProject.Pages.RecipePages {
     
     
-    public partial class Listing {
+    public partial class Edit {
         
         /// <summary>
         /// PanelSuccess control.
@@ -31,12 +31,12 @@ namespace RecipeProject.Pages.RecipePages {
         protected global::System.Web.UI.WebControls.Label LabelSuccess;
         
         /// <summary>
-        /// RecipeListView control.
+        /// RecipeFormView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView RecipeListView;
+        protected global::System.Web.UI.WebControls.FormView RecipeFormView;
     }
 }
