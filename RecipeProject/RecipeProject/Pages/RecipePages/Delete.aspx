@@ -9,7 +9,10 @@
 <asp:Content ContentPlaceHolderID="MainPlaceHolder" runat="server">
     <h1>Ta bort recept
     </h1>
-    <asp:ValidationSummary runat="server" />
+    <asp:ValidationSummary runat="server" CssClass="alert-box alert"
+        DisplayMode="BulletList"
+        EnableClientScript="true"
+        HeaderText="Fel inträffade. Åtgärda felen och försök igen." />
     <asp:PlaceHolder runat="server" ID="ConfirmationPlaceHolder">
         <p>
             Är du säker på att du vill ta bort receptet <strong>

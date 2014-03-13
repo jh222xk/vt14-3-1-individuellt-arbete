@@ -126,6 +126,7 @@ namespace RecipeProject.Model.DAL
 
             using (var conn = CreateConnection())
             {
+
                 try
                 {
                     var cmd = new SqlCommand("app.uspAddRecipe", conn);
@@ -138,12 +139,16 @@ namespace RecipeProject.Model.DAL
                     cmd.Parameters.Add("@Amount", SqlDbType.VarChar, 50).Value = amount.RecipeAmount;
 
                     cmd.Parameters.Add("@RecipeID", SqlDbType.Int, 4).Direction = ParameterDirection.Output;
+                    //cmd.Parameters.Add("@IngredientID", SqlDbType.Int, 4).Direction = ParameterDirection.Output;
+                    //cmd.Parameters.Add("@InstructionID", SqlDbType.Int, 4).Direction = ParameterDirection.Output;
 
                     conn.Open();
 
                     cmd.ExecuteNonQuery();
 
                     recipe.RecipeID = (int)cmd.Parameters["@RecipeID"].Value;
+                    //int ingredientID = Convert.ToInt32(cmd.Parameters["@IngredientID"].Value);
+                    //int instructionID = Convert.ToInt32(cmd.Parameters["@InstructionID"].Value);
                 }
                 catch (Exception)
                 {
