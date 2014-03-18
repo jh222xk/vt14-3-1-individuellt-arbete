@@ -14,6 +14,7 @@ namespace RecipeProject.Model
         // Recipe in the database
 
         public int RecipeID { get; set; }
+        public bool IsDummy { get; set; }
 
         [Required(ErrorMessage = "Ett namn måste anges.")]
         [StringLength(60, ErrorMessage = "Namnet kan bestå av som mest 60 tecken.")]

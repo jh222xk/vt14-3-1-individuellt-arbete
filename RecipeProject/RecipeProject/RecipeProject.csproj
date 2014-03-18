@@ -89,6 +89,7 @@
     <Content Include="Pages\RecipePages\Home.aspx" />
     <Content Include="Pages\Shared\Error.aspx" />
     <Content Include="Pages\Shared\Recipe.Master" />
+    <None Include="Properties\PublishProfiles\1dv406Profile.pubxml" />
     <None Include="Scripts\jquery-2.1.0.intellisense.js" />
     <Content Include="Pages\RecipePages\Listing.aspx" />
     <Content Include="Scripts\jquery-2.1.0.js" />
@@ -103,6 +104,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Strings.resx</DependentUpon>
     </Compile>
+    <Compile Include="App_Infastructure\Helper.cs" />
     <Compile Include="App_Infastructure\ValidationExtensions.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />

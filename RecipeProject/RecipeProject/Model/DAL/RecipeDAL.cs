@@ -23,6 +23,7 @@ namespace RecipeProject.Model.DAL
         {
             using (var conn = CreateConnection())
             {
+
                 try
                 {
                     var recipes = new List<Recipe>(100);
@@ -38,6 +39,7 @@ namespace RecipeProject.Model.DAL
                         var recipeNameIndex = reader.GetOrdinal("Recipename");
                         var recipeDescriptionIndex = reader.GetOrdinal("Description");
                         var recipeInstructionIndex = reader.GetOrdinal("Instruction");
+                        var recipeIsDummyIndex = reader.GetOrdinal("IsDummy");
 
                         while (reader.Read())
                         {
@@ -46,7 +48,8 @@ namespace RecipeProject.Model.DAL
                                 RecipeID = reader.GetInt32(recipeIdIndex),
                                 Recipename = reader.GetString(recipeNameIndex),
                                 Description = reader.GetString(recipeDescriptionIndex),
-                                Instruction = reader.GetString(recipeInstructionIndex)
+                                Instruction = reader.GetString(recipeInstructionIndex),
+                                IsDummy = reader.GetBoolean(recipeIsDummyIndex)
                             });
                         }
                     }
@@ -59,6 +62,7 @@ namespace RecipeProject.Model.DAL
                 {
                     throw new ApplicationException(GenericErrorMessage);
                 }
+
             }
         }
 

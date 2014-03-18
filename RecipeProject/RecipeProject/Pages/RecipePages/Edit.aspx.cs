@@ -133,7 +133,6 @@ namespace RecipeProject.Pages.RecipePages
                 var amount = Service.GetAmount(amountId);
                 if (amount == null)
                 {
-                    // Hittade inte kontaktuppgiften.
                     Page.ModelState.AddModelError(String.Empty,
                         String.Format(Amount_Not_Found, amountId));
                     return;

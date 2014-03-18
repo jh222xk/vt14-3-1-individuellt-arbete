@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using RecipeProject.App_Infastructure;
 
 namespace RecipeProject.Pages.RecipePages
 {
@@ -47,7 +48,14 @@ namespace RecipeProject.Pages.RecipePages
         /// </summary>
         public IEnumerable<Recipe> RecipeListView_GetData()
         {
-            return Service.GetRecipes();
+            // Get the recipes.
+            var recipes = Service.GetRecipes();
+
+            // Call the helper and remove the recipes that has IsDummy set to true.
+            recipes = recipes.ExceptWhere(x => x.IsDummy == true);
+
+            // return them.
+            return recipes;
         }
     }
 }
