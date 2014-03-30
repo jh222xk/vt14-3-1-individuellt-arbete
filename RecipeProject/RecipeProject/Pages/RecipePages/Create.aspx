@@ -41,7 +41,12 @@
             <div class="row">
                 <div class="large-12 columns">
                     <label for="Ingredient">Ingrediens</label>
-                    <asp:TextBox ID="IngredientTextBox" runat="server" MaxLength="40" Text='<%# Bind("Ingredientname") %>' />
+                    <asp:DropDownList ID="IngredientDropDownList" runat="server"
+                        ItemType="RecipeProject.Model.Ingredients"
+                        SelectMethod="IngredientsDropDownList_GetData"
+                        DataTextField="Ingredientname"
+                        DataValueField="IngredientID"
+                        SelectedValue='<%# Bind("IngredientID") %>' />
                     <label for="Amount">Mängd</label>
                     <asp:TextBox ID="AmountTextBox" runat="server" MaxLength="25" Text='<%# Bind("RecipeAmount") %>' />
                 </div>
@@ -56,8 +61,8 @@
                 Display="None" ControlToValidate="Description"></asp:RequiredFieldValidator>
             <asp:RequiredFieldValidator ID="RequiredFieldValidatorInsertInstruction" runat="server" ErrorMessage="En instruktion måste anges."
                 Display="None" ControlToValidate="Instruction"></asp:RequiredFieldValidator>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidatorInsertIngredient" runat="server" ErrorMessage="Ingrediens måste anges."
-                Display="None" ControlToValidate="IngredientTextBox"></asp:RequiredFieldValidator>
+            <%--<asp:RequiredFieldValidator ID="RequiredFieldValidatorInsertIngredient" runat="server" ErrorMessage="Ingrediens måste anges."
+                Display="None" ControlToValidate="IngredientTextBox"></asp:RequiredFieldValidator> --%>
             <asp:RequiredFieldValidator ID="RequiredFieldValidatorInsertAmount" runat="server" ErrorMessage="Mängd måste anges."
                 Display="None" ControlToValidate="AmountTextBox"></asp:RequiredFieldValidator>
         </InsertItemTemplate>

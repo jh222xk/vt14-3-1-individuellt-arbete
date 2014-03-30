@@ -112,6 +112,7 @@ namespace RecipeProject.Model.DAL
         {
             using (var conn = CreateConnection())
             {
+
                 try
                 {
                     var cmd = new SqlCommand("app.uspGetAmount", conn);
@@ -124,16 +125,18 @@ namespace RecipeProject.Model.DAL
                     using (var reader = cmd.ExecuteReader())
                     {
                         var amountIdIndex = reader.GetOrdinal("AmountID");
+                        var recipeIdIndex = reader.GetOrdinal("RecipeID");
+                        var ingredientIdIndex = reader.GetOrdinal("IngredientID");
                         var amountIndex = reader.GetOrdinal("Amount");
-                        var ingredientIndex = reader.GetOrdinal("Ingredientname");
 
                         if (reader.Read())
                         {
                             return new Amount
                             {
                                 AmountID = reader.GetInt32(amountIdIndex),
+                                RecipeID = reader.GetInt32(recipeIdIndex),
                                 RecipeAmount = reader.GetString(amountIndex),
-                                Ingredientname = reader.GetString(ingredientIndex)
+                                IngredientID = reader.GetInt32(ingredientIdIndex)
                             };
                         }
                     }
@@ -144,6 +147,7 @@ namespace RecipeProject.Model.DAL
                 {
                     throw new ApplicationException(GenericErrorMessage);
                 }
+
             }
         }
 
@@ -157,8 +161,9 @@ namespace RecipeProject.Model.DAL
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     cmd.Parameters.Add("@AmountID", SqlDbType.Int, 4).Value = amount.AmountID;
+                    cmd.Parameters.Add("@IngredientID", SqlDbType.Int, 4).Value = amount.IngredientID; 
                     cmd.Parameters.Add("@Amount", SqlDbType.VarChar, 50).Value = amount.RecipeAmount;
-                    cmd.Parameters.Add("@Ingredientname", SqlDbType.VarChar, 50).Value = amount.Ingredientname;
+                    //cmd.Parameters.Add("@Ingredientname", SqlDbType.VarChar, 50).Value = amount.Ingredientname;
 
                     conn.Open();
 
@@ -173,9 +178,9 @@ namespace RecipeProject.Model.DAL
         }
 
         /// <summary>
-        /// Creates a new entry in the table Contact.
+        /// Creates a new entry in the table Amount.
         /// </summary>
-        /// <param name="amount">Contact information that will be saved.</param>
+        /// <param name="amount">Amount that will be saved.</param>
         public void InsertAmount(Amount amount)
         {
             if (amount == null) { throw new ArgumentNullException("Får ej vara null..."); }
@@ -184,12 +189,12 @@ namespace RecipeProject.Model.DAL
             {
                 try
                 {
-                    var cmd = new SqlCommand("app.uspAddIngredient", conn);
+                    var cmd = new SqlCommand("app.uspAddAmount", conn);
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    cmd.Parameters.Add("@Ingredientname", SqlDbType.VarChar, 50).Value = amount.Ingredientname;
+                    cmd.Parameters.Add("@IngredientID", SqlDbType.Int, 4).Value = amount.IngredientID;
                     cmd.Parameters.Add("@Amount", SqlDbType.VarChar, 50).Value = amount.RecipeAmount;
-                    cmd.Parameters.Add("@RecipeID", SqlDbType.VarChar, 50).Value = amount.RecipeID;
+                    cmd.Parameters.Add("@RecipeID", SqlDbType.Int, 4).Value = amount.RecipeID;
 
                     conn.Open();
 
@@ -211,10 +216,10 @@ namespace RecipeProject.Model.DAL
             {
                 try
                 {
-                    var cmd = new SqlCommand("app.uspDeleteIngredient", conn);
+                    var cmd = new SqlCommand("app.uspDeleteAmount", conn);
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    cmd.Parameters.Add("@IngredientID", SqlDbType.Int, 4).Value = amountId;
+                    cmd.Parameters.Add("@AmountID", SqlDbType.Int, 4).Value = amountId;
 
                     conn.Open();
 

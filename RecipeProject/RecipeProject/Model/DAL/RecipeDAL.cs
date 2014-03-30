@@ -136,7 +136,7 @@ namespace RecipeProject.Model.DAL
                     var cmd = new SqlCommand("app.uspAddRecipe", conn);
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    cmd.Parameters.Add("@Ingredientname", SqlDbType.VarChar, 25).Value = amount.Ingredientname;
+                    cmd.Parameters.Add("@IngredientID", SqlDbType.Int, 4).Value = amount.IngredientID;
                     cmd.Parameters.Add("@Recipename", SqlDbType.VarChar, 50).Value = recipe.Recipename;
                     cmd.Parameters.Add("@Description", SqlDbType.VarChar, 50).Value = recipe.Description;
                     cmd.Parameters.Add("@Instruction", SqlDbType.VarChar, 50).Value = recipe.Instruction;
@@ -151,6 +151,7 @@ namespace RecipeProject.Model.DAL
                     cmd.ExecuteNonQuery();
 
                     recipe.RecipeID = (int)cmd.Parameters["@RecipeID"].Value;
+                    amount.RecipeID = (int)cmd.Parameters["@RecipeID"].Value;
                     //int ingredientID = Convert.ToInt32(cmd.Parameters["@IngredientID"].Value);
                     //int instructionID = Convert.ToInt32(cmd.Parameters["@InstructionID"].Value);
                 }

@@ -77,8 +77,13 @@
                             <asp:View ID="EditView" runat="server">
                                 <div class="row">
                                     <div class="large-4 columns">
-                                        <label>Ingrediens</label>
-                                        <asp:TextBox ID="IngredientTextBox" runat="server" Text='<%# Item.Ingredientname %>' MaxLength="50" Enabled="false" />
+                                        <asp:DropDownList ID="IngredientDropDownList" runat="server"
+                                            ItemType="RecipeProject.Model.Ingredients"
+                                            SelectMethod="IngredientsDropDownList_GetData"
+                                            DataTextField="Ingredientname"
+                                            DataValueField="IngredientID"
+                                            Enabled="false"
+                                            SelectedValue='<%# Item.IngredientID %>' />
                                     </div>
                                     <div class="large-4 columns">
                                         <asp:Label ID="AmountLabel" CssClass="bold" runat="server" Text="Mängd för: " />
@@ -87,7 +92,7 @@
                                     </div>
                                     <div class="large-4 columns" style="margin-top: 15px;">
                                         <asp:LinkButton runat="server" CssClass="button" CommandName="Edit" Text="Redigera" CausesValidation="false" />
-                                        <asp:HyperLink runat="server" CssClass="button" Text="Ta bort" NavigateUrl='<%# GetRouteUrl("IngredientDelete", new { id = Item.IngredientID }) %>' />
+                                        <asp:HyperLink runat="server" CssClass="button" Text="Ta bort" NavigateUrl='<%# GetRouteUrl("IngredientDelete", new { id = Item.AmountID }) %>' />
                                     </div>
                                 </div>
                             </asp:View>
@@ -97,7 +102,12 @@
                         <div class="row">
                             <div class="large-4 columns">
                                 <label for="Ingredient">Ingrediens</label>
-                                <asp:TextBox ID="IngredientTextBox" runat="server" MaxLength="40" Text='<%# Bind("Ingredientname") %>' />
+                                <asp:DropDownList ID="IngredientDropDownList" runat="server"
+                                    ItemType="RecipeProject.Model.Ingredients"
+                                    SelectMethod="IngredientsDropDownList_GetData"
+                                    DataTextField="Ingredientname"
+                                    DataValueField="IngredientID"
+                                    SelectedValue='<%# BindItem.IngredientID %>' />
                             </div>
                             <div class="large-4 columns">
                                 <label for="Amount">Mängd</label>
@@ -107,16 +117,21 @@
                                 <asp:LinkButton ValidationGroup="InsertValidationGroup" CssClass="button" runat="server" CommandName="Insert" Text="Spara" />
                             </div>
                         </div>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidatorInsertIngredient" runat="server" ErrorMessage="Ingrediens måste anges."
+                       <%-- <asp:RequiredFieldValidator ID="RequiredFieldValidatorInsertIngredient" runat="server" ErrorMessage="Ingrediens måste anges."
                             Display="None" ControlToValidate="IngredientTextBox" ValidationGroup="InsertValidationGroup"></asp:RequiredFieldValidator>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidatorInsertAmount" runat="server" ErrorMessage="Mängd måste anges."
-                            Display="None" ControlToValidate="AmountTextBox" ValidationGroup="InsertValidationGroup"></asp:RequiredFieldValidator>
+                            Display="None" ControlToValidate="AmountTextBox" ValidationGroup="InsertValidationGroup"></asp:RequiredFieldValidator>--%>
                     </InsertItemTemplate>
                     <EditItemTemplate>
                         <div class="row">
                             <div class="large-4 columns">
                                 <label>Ingrediens</label>
-                                <asp:TextBox ID="Ingredient" runat="server" Text='<%# Bind("Ingredientname") %>' />
+                                <asp:DropDownList ID="IngredientDropDownList" runat="server"
+                                    ItemType="RecipeProject.Model.Ingredients"
+                                    SelectMethod="IngredientsDropDownList_GetData"
+                                    DataTextField="Ingredientname"
+                                    DataValueField="IngredientID"
+                                    SelectedValue='<%# BindItem.IngredientID %>' />
                             </div>
                             <div class="large-4 columns">
                                 <asp:Label ID="AmountLabel" CssClass="bold" runat="server" Text="Mängd för: " />
@@ -128,8 +143,8 @@
                                 <asp:LinkButton ID="LinkButton4" CssClass="button" runat="server" CommandName="Cancel" Text="Avbryt" CausesValidation="false" />
                             </div>
                         </div>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidatorInsertFirstName" runat="server" ErrorMessage="Ingrediens måste anges."
-                            Display="None" ControlToValidate="Ingredient"></asp:RequiredFieldValidator>
+                        <%-- <asp:RequiredFieldValidator ID="RequiredFieldValidatorInsertFirstName" runat="server" ErrorMessage="Ingrediens måste anges."
+                            Display="None" ControlToValidate="Ingredient"></asp:RequiredFieldValidator> --%>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidatorInsertLastName" runat="server" ErrorMessage="Mängd måste anges."
                             Display="None" ControlToValidate="Amount"></asp:RequiredFieldValidator>
                     </EditItemTemplate>

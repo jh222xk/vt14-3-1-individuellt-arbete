@@ -103,5 +103,10 @@ namespace RecipeProject.Pages.RecipePages
                 }
             }
         }
+
+        public IEnumerable<Ingredients> IngredientsDropDownList_GetData()
+        {
+            return Service.GetIngredients();
+        }
     }
 }

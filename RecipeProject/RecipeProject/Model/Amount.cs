@@ -19,8 +19,8 @@ namespace RecipeProject.Model
         [StringLength(25, ErrorMessage = "Mängden kan bestå av som mest 25 tecken.")]
         public string RecipeAmount { get; set; }
 
-        [Required(ErrorMessage = "Ingrediensen måste anges.")]
-        [StringLength(40, ErrorMessage = "Ingrediensen kan bestå av som mest 40 tecken.")]
+        //[Required(ErrorMessage = "Ingrediensen måste anges.")]
+        //[StringLength(40, ErrorMessage = "Ingrediensen kan bestå av som mest 40 tecken.")]
         public string Ingredientname { get; set; }
     }
 }

@@ -61,7 +61,7 @@ namespace RecipeProject.Pages.IngredientPages
         private Amount _amount;
         private Amount Amount
         {
-            get { return _amount ?? (_amount = Service.GetAmountByIngredientId(Id)); }
+            get { return _amount ?? (_amount = Service.GetAmount(Id)); }
         }
 
         private Ingredients _ingredients;
@@ -91,7 +91,7 @@ namespace RecipeProject.Pages.IngredientPages
                 {
                     if (Recipe != null)
                     {
-                        IngredientValue.Text = Ingredients.Ingredientname;
+                        IngredientValue.Text = Amount.Ingredientname;
                         Recipename.Text = Recipe.Recipename;
                         return;
                     }
